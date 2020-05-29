@@ -1,0 +1,29 @@
+-- Database Schema:
+-- World Populations SQL Practice / Populacija zemlje SQL vježba
+SELECT DISTINCT year from population_years;
+
+-- Largest population of Gabon was in 2010 
+SELECT year, population, country from population_years
+WHERE country = 'Gabon'
+ORDER BY population DESC
+LIMIT 1;
+
+--10 lowest population countries 
+SELECT DISTINCT country, year, population from population_years
+WHERE population > 0 AND year = '2005'
+ORDER BY population DESC
+LIMIT 10;
+
+--List of countries that have the population of more than 100 million in the year 2010
+SELECT DISTINCT country, year, population from  population_years
+WHERE population >= 100.00000 AND year = '2010'
+ORDER BY population DESC;
+
+--List of countries that have the word "Islands" in their name and their number is 9
+SELECT DISTINCT country FROM population_years 
+WHERE country LIKE '% Islands%';
+
+--Difference between Indonesia in 2000 and 2010
+SELECT * FROM population_years
+WHERE country = 'Indonesia' AND year BETWEEN 2000 and 2011 
+ORDER BY year ASC;
